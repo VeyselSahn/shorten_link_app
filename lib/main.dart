@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:grisoft/screen/link_input_screen/link_input_screen.dart';
+import 'package:grisoft/screen/main_screen/main_screen.dart';
 
 void main() => runApp(const MyApp());
 
@@ -8,6 +8,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(title: 'Material App', debugShowCheckedModeBanner: false, home: LinkInputScreen());
+    return const MaterialApp(title: 'Material App', debugShowCheckedModeBanner: false, home: MainScreen());
   }
 }
