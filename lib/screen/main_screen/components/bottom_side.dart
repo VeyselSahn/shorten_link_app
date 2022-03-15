@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:grisoft/core/constant/texts.dart';
 import 'package:grisoft/core/init/extensions/validation_extensions.dart';
+import 'package:grisoft/core/init/styles/text_styles.dart';
 import 'package:grisoft/core/model/link_item_model.dart';
 import 'package:grisoft/core/provider/links_provider.dart';
 import 'package:grisoft/core/service/cache_service.dart';
@@ -31,7 +32,7 @@ class BottomSide extends StatelessWidget {
                   filled: true,
                   fillColor: ColorConstants.background,
                   hintText: linksProvider.isWarn ? Texts.instance.fieldEmotyWarn : Texts.instance.textfieldEmpty,
-                  hintStyle: TextStyle(color: linksProvider.isWarn ? Colors.red : Colors.black),
+                  hintStyle: TextStyle(color: linksProvider.isWarn ? Colors.red : Colors.grey.shade600, fontSize: 16),
                   border: const OutlineInputBorder(borderSide: BorderSide(color: Colors.transparent))),
             ),
           ),
@@ -49,8 +50,7 @@ class BottomSide extends StatelessWidget {
                 linksProvider.changeIsWarn(false);
                 var respose = await ShortenService().shortenLink(linksProvider.linkController.text);
                 if (respose != null) {
-                  var model = LinkItemModel(
-                      originalLink: respose['result']['original_link'], shortLink: respose['result']['short_link']);
+                  var model = LinkItemModel.fromJson(respose['result'] ?? {});
                   CacheService.instance.addLink(model);
                   linksProvider.linkController.clear();
                 } else {
@@ -65,7 +65,7 @@ class BottomSide extends StatelessWidget {
               child: Center(
                   child: Text(
                 Texts.instance.shortenButton,
-                style: const TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
+                style: TextStyles.instance.shortenButton,
               )),
               decoration: BoxDecoration(borderRadius: BorderRadius.circular(4), color: ColorConstants.cyan),
             ),

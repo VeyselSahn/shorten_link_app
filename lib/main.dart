@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:grisoft/core/provider/links_provider.dart';
 import 'package:grisoft/core/service/cache_service.dart';
 import 'package:grisoft/screen/main_screen/main_screen.dart';
@@ -20,6 +19,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
         create: (_) => LinksProvider(),
-        child: const GetMaterialApp(title: 'Material App', debugShowCheckedModeBanner: false, home: MainScreen()));
+        child: const MaterialApp(title: 'Material App', debugShowCheckedModeBanner: false, home: MainScreen()));
   }
 }

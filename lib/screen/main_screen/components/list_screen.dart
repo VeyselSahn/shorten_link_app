@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:grisoft/core/init/extensions/image_path_extensions.dart';
+import 'package:grisoft/core/init/styles/text_styles.dart';
 import 'package:grisoft/core/model/link_item_model.dart';
 import 'package:grisoft/core/provider/links_provider.dart';
 import 'package:grisoft/core/service/cache_service.dart';
@@ -24,12 +25,9 @@ class ListScreen extends StatelessWidget {
         SizedBox(
           height: size.height * .07,
         ),
-        const Text(
+        Text(
           'Your Link History',
-          style: TextStyle(
-            color: Colors.black,
-            fontSize: 19,
-          ),
+          style: TextStyles.instance.titleBold,
         ),
         SizedBox(
           height: size.height * 0.65,

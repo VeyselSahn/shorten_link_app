@@ -6,6 +6,7 @@ import 'package:grisoft/core/service/cache_service.dart';
 import 'package:grisoft/screen/main_screen/components/bottom_side.dart';
 import 'package:grisoft/screen/main_screen/components/list_screen.dart';
 import 'package:grisoft/screen/main_screen/components/logo_screen.dart';
+import 'package:grisoft/screen/main_screen/components/mycustom_painter.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:provider/provider.dart';
 
@@ -19,7 +20,7 @@ class MainScreen extends StatelessWidget {
       body: Consumer<LinksProvider>(
         builder: (context, linksProvider, child) => ValueListenableBuilder(
           valueListenable: Hive.box(HiveConstants.instance.linksBoxKey).listenable(),
-          builder: (context,Box linkBox, child) => SingleChildScrollView(
+          builder: (context, Box linkBox, child) => SingleChildScrollView(
             child: IntrinsicHeight(
               child: Column(
                 children: [
@@ -36,10 +37,13 @@ class MainScreen extends StatelessWidget {
                       )),
                   Expanded(
                       flex: 1,
-                      child: Container(
-                        color: ColorConstants.purple,
-                        child: BottomSide(
-                          linksProvider: linksProvider,
+                      child: CustomPaint(
+                        painter: RPSCustomPainter(),
+                        child: Container(
+                          color: ColorConstants.purple,
+                          child: BottomSide(
+                            linksProvider: linksProvider,
+                          ),
                         ),
                       )),
                 ],
@@ -50,6 +54,4 @@ class MainScreen extends StatelessWidget {
       ),
     );
   }
-
-
 }
