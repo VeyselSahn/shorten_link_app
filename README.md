@@ -1,16 +1,9 @@
-# grisoft
+#Grisoft Challenge
 
-A new Flutter project.
+  Firstly ,I am still working for another company, so I didnt have so much time and I didnt complete code somewhere.
+  1. Valid Link , added but just showing , not working correctly. 
+  2. I used provider , But i didnt use so much state managment so Thats not matter.
+  3. I didnt write test for whole apps.
+  4. I couldnt handle custompaint
+  5. I have a windows computer so I couldnt test on ios.
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
