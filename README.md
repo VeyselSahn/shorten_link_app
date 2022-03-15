@@ -5,5 +5,5 @@
   2. I used provider , But i didnt use so much state managment so Thats not matter.
   3. I didnt write test for whole apps.
   4. I couldnt handle custompaint
-  I have a windows computer so I couldnt test on ios.
+  5. I have a windows computer so I couldnt test on ios.
 
