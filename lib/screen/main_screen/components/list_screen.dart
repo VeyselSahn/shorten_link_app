@@ -6,13 +6,13 @@ import 'package:grisoft/core/init/styles/text_styles.dart';
 import 'package:grisoft/core/model/link_item_model.dart';
 import 'package:grisoft/core/provider/links_provider.dart';
 import 'package:grisoft/core/service/cache_service.dart';
-import 'package:provider/provider.dart';
-
 import '../../../core/constant/colors.dart';
 
 class ListScreen extends StatelessWidget {
+  final LinksProvider linksProvider;
   const ListScreen({
     Key? key,
+    required this.linksProvider,
   }) : super(key: key);
 
   @override
@@ -44,7 +44,6 @@ class ListScreen extends StatelessWidget {
   }
 
   Widget listItem(BuildContext context, Size size, LinkItemModel model) {
-    var linksProvider = Provider.of<LinksProvider>(context, listen: false);
     return AlertDialog(
       contentPadding: const EdgeInsets.symmetric(horizontal: 24),
       actionsPadding: const EdgeInsets.symmetric(vertical: 20, horizontal: 15),

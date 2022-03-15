@@ -1,3 +1,3 @@
 class Validation {
-  var validLinkRules = RegExp(r'\.com +[a-zA-Z]');
+  var validLinkRules = RegExp(r'^\w+\.com$');
 }

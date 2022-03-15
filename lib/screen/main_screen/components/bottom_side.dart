@@ -7,17 +7,16 @@ import 'package:grisoft/core/provider/links_provider.dart';
 import 'package:grisoft/core/service/cache_service.dart';
 import 'package:grisoft/core/service/shorten_service.dart';
 import 'package:grisoft/core/widgets/snackbar.dart';
-import 'package:provider/provider.dart';
 
 import '../../../core/constant/colors.dart';
 
 class BottomSide extends StatelessWidget {
-  const BottomSide({Key? key}) : super(key: key);
+  final LinksProvider linksProvider;
+  const BottomSide({Key? key, required this.linksProvider}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
-    var linksProvider = Provider.of<LinksProvider>(context, listen: false);
 
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: size.width * .1),
@@ -45,7 +44,7 @@ class BottomSide extends StatelessWidget {
             onTap: () async {
               if (linksProvider.linkController.text.isEmpty) {
                 linksProvider.changeIsWarn(true);
-              } else if (Validation().validLinkRules.hasMatch(linksProvider.linkController.text)) {
+              } else if (!Validation().validLinkRules.hasMatch(linksProvider.linkController.text)) {
                 showSnacbar(context, Texts.instance.validLink);
               } else {
                 buildShowDialog(context);
