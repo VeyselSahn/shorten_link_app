@@ -33,7 +33,10 @@ class BottomSide extends StatelessWidget {
                   filled: true,
                   fillColor: ColorConstants.background,
                   hintText: linksProvider.isWarn ? Texts.instance.fieldEmotyWarn : Texts.instance.textfieldEmpty,
-                  hintStyle: TextStyle(color: linksProvider.isWarn ? Colors.red : Colors.grey.shade600, fontSize: 16),
+                  hintStyle: TextStyle(
+                      color: linksProvider.isWarn ? Colors.red : Colors.grey.shade600,
+                      fontSize: 18,
+                      fontWeight: FontWeight.w600),
                   border: const OutlineInputBorder(borderSide: BorderSide(color: Colors.transparent))),
             ),
           ),

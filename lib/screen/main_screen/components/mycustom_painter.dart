@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:grisoft/core/constant/colors.dart';
+import 'dart:ui' as ui;
 
 class RPSCustomPainter extends CustomPainter {
   @override
@@ -7,16 +8,15 @@ class RPSCustomPainter extends CustomPainter {
     Paint paint0 = Paint()
       ..color = ColorConstants.lightPurple
       ..style = PaintingStyle.fill
-      ..strokeWidth = 6.99;
+      ..strokeWidth = 1;
 
     Path path0 = Path();
-    path0.moveTo(size.width * 0.5416667, 0);
-    path0.lineTo(size.width * 0.9983333, size.height * 0.0016667);
-    path0.lineTo(size.width, size.height * 0.4716667);
-    path0.lineTo(size.width * 0.8558333, size.height * 0.4466667);
-    path0.lineTo(size.width * 0.6216667, size.height * 0.2183333);
-    path0.lineTo(size.width * 0.5416667, 0);
-    path0.close();
+    path0.moveTo(size.width * 0.4591667, 0);
+    path0.lineTo(size.width * 0.5316667, size.height * 0.2066667);
+    path0.lineTo(size.width * 0.6533333, size.height * 0.4083333);
+    path0.lineTo(size.width * 0.8108333, size.height * 0.5516667);
+    path0.lineTo(size.width, size.height * 0.5866667);
+    path0.lineTo(size.width, 0);
 
     canvas.drawPath(path0, paint0);
   }
