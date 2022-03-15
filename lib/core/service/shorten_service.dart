@@ -11,7 +11,7 @@ class ShortenService {
       var response = await _dio.get(ServiceConstants.instance.endPoint + link);
       return response.data;
     } catch (e) {
-      throw Exception('Error: ' + e.toString());
+      return null;
     }
   }
 }

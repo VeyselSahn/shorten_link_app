@@ -5,4 +5,6 @@ class Texts {
   String textfieldEmpty = 'Shorten a link here';
   String fieldEmotyWarn = 'Must enter a link';
   String shortenButton = 'SHORTEN IT!';
+  String validLink = 'Enter an valid link';
+  String wentWrong = 'Somethings went wrong';
 }

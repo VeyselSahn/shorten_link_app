@@ -4,12 +4,16 @@ import 'package:flutter_svg/svg.dart';
 import 'package:grisoft/core/init/extensions/image_path_extensions.dart';
 import 'package:grisoft/core/model/link_item_model.dart';
 import 'package:grisoft/core/provider/links_provider.dart';
+import 'package:grisoft/core/service/cache_service.dart';
 
 import '../../../core/constant/colors.dart';
 
-class ListYedek extends StatelessWidget {
+class ListScreen extends StatelessWidget {
   final LinksProvider linksProvider;
-  const ListYedek({Key? key, required this.linksProvider}) : super(key: key);
+  const ListScreen({
+    Key? key,
+    required this.linksProvider,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -17,24 +21,24 @@ class ListYedek extends StatelessWidget {
 
     return Column(
       children: [
-        const SizedBox(
-          height: 50,
+        SizedBox(
+          height: size.height * .07,
         ),
         const Text(
           'Your Link History',
           style: TextStyle(
             color: Colors.black,
-            fontSize: 17,
+            fontSize: 19,
           ),
         ),
         SizedBox(
-          height: size.height * 3 / 4 - 80,
+          height: size.height * 0.65,
           child: ListView.builder(
             shrinkWrap: true,
-            itemCount: linksProvider.linkList.length,
+            itemCount: CacheService.instance.getLinks().length,
             padding: EdgeInsets.zero,
             itemBuilder: (context, index) {
-              return listItem(size, linksProvider.linkList.elementAt(index));
+              return listItem(size, CacheService.instance.getLinks().elementAt(index));
             },
           ),
         )
@@ -45,15 +49,16 @@ class ListYedek extends StatelessWidget {
   Widget listItem(Size size, LinkItemModel model) {
     return AlertDialog(
       contentPadding: const EdgeInsets.symmetric(horizontal: 24),
-      actionsPadding: const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
+      actionsPadding: const EdgeInsets.symmetric(vertical: 20, horizontal: 15),
       title: Column(
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(model.realLink ?? '', style: const TextStyle(color: Colors.black, fontSize: 15)),
+              Text(model.originalLink ?? '', style: const TextStyle(color: Colors.black, fontSize: 15)),
               GestureDetector(
-                  onTap: () => linksProvider.deleteLink(model), child: SvgPicture.asset('del'.svgImageAsset))
+                  onTap: () async => await CacheService.instance.deleteLink(model),
+                  child: SvgPicture.asset('del'.svgImageAsset))
             ],
           ),
           const Divider(
@@ -66,16 +71,17 @@ class ListYedek extends StatelessWidget {
         GestureDetector(
           onTap: () async {
             await Clipboard.setData(ClipboardData(text: model.shortLink!));
-            await Clipboard.getData('text/plain').then((value) => print(value?.text.toString()));
+            linksProvider.changeCopiedLink(model.shortLink ?? '');
           },
           child: Container(
-            width: size.width - 50,
+            width: size.width * .8,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(5),
-              color: ColorConstants.cyan,
+              color: linksProvider.copiedLink == model.shortLink ? ColorConstants.purple : ColorConstants.cyan,
             ),
-            child: const Center(
-              child: Text("Copy", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
+            child: Center(
+              child: Text(linksProvider.copiedLink == model.shortLink ? 'COPIED' : 'COPY',
+                  style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold)),
             ),
             height: 40,
           ),
