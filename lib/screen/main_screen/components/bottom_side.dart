@@ -44,7 +44,7 @@ class BottomSide extends StatelessWidget {
             onTap: () async {
               if (linksProvider.linkController.text.isEmpty) {
                 linksProvider.changeIsWarn(true);
-              } else if (!Validation().validLinkRules.hasMatch(linksProvider.linkController.text)) {
+              } else if (!linksProvider.linkController.text.isValid) {
                 showSnacbar(context, Texts.instance.validLink);
               } else {
                 buildShowDialog(context);
