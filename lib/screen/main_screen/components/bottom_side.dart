@@ -7,16 +7,18 @@ import 'package:grisoft/core/provider/links_provider.dart';
 import 'package:grisoft/core/service/cache_service.dart';
 import 'package:grisoft/core/service/shorten_service.dart';
 import 'package:grisoft/core/widgets/snackbar.dart';
+import 'package:provider/provider.dart';
 
 import '../../../core/constant/colors.dart';
 
 class BottomSide extends StatelessWidget {
-  final LinksProvider linksProvider;
-  const BottomSide({Key? key, required this.linksProvider}) : super(key: key);
+  const BottomSide({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
+    var linksProvider = Provider.of<LinksProvider>(context, listen: false);
+
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: size.width * .1),
       child: Column(

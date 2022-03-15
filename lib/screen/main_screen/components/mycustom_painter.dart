@@ -8,17 +8,16 @@ class RPSCustomPainter extends CustomPainter {
     Paint paint0 = Paint()
       ..color = ColorConstants.lightPurple
       ..style = PaintingStyle.fill
-      ..strokeWidth = 1;
-    paint0.shader = ui.Gradient.linear(Offset(size.width * 0.41, size.height * 0.48),
-        Offset(size.width * 0.53, size.height * 0.48), [Colors.amber, Colors.white], [0.00, 1.00]);
+      ..strokeWidth = 6.99;
 
     Path path0 = Path();
-    path0.moveTo(size.width * 0.4111667, size.height * 0.4166667);
-    path0.lineTo(size.width * 0.5258333, size.height * 0.4150000);
-    path0.lineTo(size.width * 0.5208333, size.height * 0.5516667);
-    path0.lineTo(size.width * 0.4730000, size.height * 0.5256667);
-    path0.lineTo(size.width * 0.4433333, size.height * 0.5133333);
-    path0.lineTo(size.width * 0.4250000, size.height * 0.4833333);
+    path0.moveTo(size.width * 0.5416667, 0);
+    path0.lineTo(size.width * 0.9983333, size.height * 0.0016667);
+    path0.lineTo(size.width, size.height * 0.4716667);
+    path0.lineTo(size.width * 0.8558333, size.height * 0.4466667);
+    path0.lineTo(size.width * 0.6216667, size.height * 0.2183333);
+    path0.lineTo(size.width * 0.5416667, 0);
+    path0.close();
 
     canvas.drawPath(path0, paint0);
   }
