@@ -14,3 +14,13 @@ Shorten Api Service gave certificate error , when i used my phone internet.
 İf you will face the same problem , I can try to solve if you tell me
 
 Veysel Sahin
+
+--Update
+Ne yaptığımı anlatmayı unuttum.
+
+--Ui
+
+Tek bir sayfa yaptım ve bunu 3 ana widget'a böldüm çünkü sadece üst kısım değişecekti.
+Bir link girildiğin de eğer apiden başarılı response dönmüş ise Locale kaydettim(Hive).Üst kısım ValueListenable ile localde eğer bir data kayıtlı ise List halinde ki widget'a dönüşüyor.
+Responsive kısmı olarak Başlangıcta Expanded kullandım böylece cihaz büyüklüğü ne olursa olsun ona göre şekillenecek.İçerdeki widgetlar için MediaQuery kullandım.Zaman bulamadğım için ek bir sınıf tutmayı unutmuşum. Bütün sayfalarda (MediaQuery.of(context).size) gibi mantıksız bir satır var.
+
