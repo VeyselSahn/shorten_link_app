@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:grisoft/core/constant/colors.dart';
 import 'package:grisoft/core/constant/hive_constants.dart';
+import 'package:grisoft/core/init/extensions/device_size_extensions.dart';
 import 'package:grisoft/core/provider/links_provider.dart';
 import 'package:grisoft/core/service/cache_service.dart';
 import 'package:grisoft/screen/main_screen/components/bottom_side.dart';
@@ -15,7 +16,6 @@ class MainScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
     return Scaffold(
       body: Consumer<LinksProvider>(
         builder: (context, linksProvider, child) => ValueListenableBuilder(
@@ -27,7 +27,6 @@ class MainScreen extends StatelessWidget {
                   Expanded(
                       flex: 3,
                       child: Container(
-                        width: size.width,
                         color: ColorConstants.background,
                         child: CacheService().getLinks().isNotEmpty
                             ? ListScreen(

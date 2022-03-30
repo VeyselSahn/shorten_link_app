@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:grisoft/core/constant/texts.dart';
+import 'package:grisoft/core/init/extensions/device_size_extensions.dart';
 import 'package:grisoft/core/init/extensions/image_path_extensions.dart';
 import 'package:grisoft/core/init/styles/text_styles.dart';
 
@@ -10,7 +11,7 @@ class LogoScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: MediaQuery.of(context).size.height * 3 / 4,
+      height: context.deviceHeight * 3 / 4,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [

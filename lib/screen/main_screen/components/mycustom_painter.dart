@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:grisoft/core/constant/colors.dart';
-import 'dart:ui' as ui;
 
 class RPSCustomPainter extends CustomPainter {
   @override
