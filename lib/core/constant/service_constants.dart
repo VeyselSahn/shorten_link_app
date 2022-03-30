@@ -1,5 +1,6 @@
 class ServiceConstants {
   static final instance = ServiceConstants();
-  String baseUrl = 'https://api.shrtco.de/v2/';
-  String endPoint = 'shorten?url=';
+  //String baseUrl = 'http://192.168.43.27:1903';
+  String endPoint = '/short';
+  
 }

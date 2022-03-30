@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:grisoft/core/constant/colors.dart';
+import 'package:grisoft/core/init/extensions/device_size_extensions.dart';
 import 'package:grisoft/core/init/extensions/validation_extensions.dart';
 import 'package:grisoft/core/provider/links_provider.dart';
 import 'package:provider/provider.dart';
@@ -50,5 +52,33 @@ abstract class MainScreenViewModel {
   void copyLink(LinkItemModel model, LinksProvider linksProvider) async {
     await Clipboard.setData(ClipboardData(text: model.shortLink!));
     linksProvider.changeCopiedLink(model.shortLink ?? '');
+  }
+
+  Future<void> serverAddressDialog(BuildContext context) async {
+    var _controller = TextEditingController();
+    await showDialog(
+        context: context,
+        builder: (_) {
+          return AlertDialog(
+            backgroundColor: ColorConstants.background,
+            title: const Text('Add Server Address'),
+            content: SizedBox(
+              child: TextField(
+                controller: _controller,
+                decoration: const InputDecoration(border: OutlineInputBorder(), hintText: 'http://'),
+              ),
+            ),
+            actions: [
+              ElevatedButton.icon(
+                  onPressed: () {
+                    CacheService.instance.saveServerAddress(_controller.text);
+                    Navigator.pop(context, 'server address dialog');
+                  },
+                  icon: const Icon(Icons.save),
+                  style: ButtonStyle(backgroundColor: MaterialStateProperty.all(ColorConstants.purple)),
+                  label: const Text('Save'))
+            ],
+          );
+        });
   }
 }
