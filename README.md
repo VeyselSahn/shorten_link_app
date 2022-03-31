@@ -30,3 +30,9 @@ Bir link girildiğin de eğer apiden başarılı response dönmüş ise Locale k
 
 Responsive kısmı olarak Başlangıcta Expanded kullandım böylece cihaz büyüklüğü ne olursa olsun ona göre şekillenecek.İçerdeki widgetlar için MediaQuery kullandım.Zaman bulamadğım için ek bir sınıf tutmayı unutmuşum. Bütün sayfalarda (MediaQuery.of(context).size) gibi mantıksız bir satır var.
 
+
+--Bilgi (upgrade branch'i)
+  Bazı eksikleri ve yeni eklentileri vakit bulduğum için upgrade branch'in de güncelledim. Oraya da bakabilirsiniz.
+  En büyük yenilik servis yavaş oldğu için dart ile fake bir servis yazdım ve oraya bağladım ve bir kaç eklenti daha...
+
+
