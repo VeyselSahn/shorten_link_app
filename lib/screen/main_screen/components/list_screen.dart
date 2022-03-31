@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:grisoft/core/init/extensions/device_size_extensions.dart';
 import 'package:grisoft/core/init/extensions/image_path_extensions.dart';
@@ -24,12 +23,9 @@ class ListScreen extends StatelessWidget with MainScreenViewModel {
         SizedBox(
           height: context.deviceHeight * .07,
         ),
-        GestureDetector(
-          onTap: () async => await serverAddressDialog(context),
-          child: Text(
-            'Your Link History',
-            style: TextStyles.instance.titleBold,
-          ),
+        Text(
+          'Your Link History',
+          style: TextStyles.instance.titleBold,
         ),
         SizedBox(
           height: context.deviceHeight * 0.65,

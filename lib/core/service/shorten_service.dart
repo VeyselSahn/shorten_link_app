@@ -3,7 +3,7 @@ import 'package:grisoft/core/constant/service_constants.dart';
 import 'package:grisoft/core/service/cache_service.dart';
 
 class ShortenService {
-  final Dio _dio = Dio(BaseOptions());
+  final Dio _dio = Dio(BaseOptions(baseUrl: ServiceConstants.instance.baseUrl));
 
   Future shortenLink(String link) async {
     try {

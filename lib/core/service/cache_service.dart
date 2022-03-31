@@ -34,15 +34,4 @@ class CacheService {
       addLink(LinkItemModel.fromJson(jsonDecode(item)));
     }
   }
-
-  Future<void> saveServerAddress(String serverAdress) async {
-    var _box = await Hive.openBox('server');
-    await _box.put('link', serverAdress);
-    await _box.close();
-  }
-
-  Future<String> getServerAddress() async {
-    var _box = await Hive.openBox('server');
-    return _box.get('link');
-  }
 }
