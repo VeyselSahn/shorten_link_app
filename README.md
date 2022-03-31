@@ -32,6 +32,8 @@ Responsive kısmı olarak Başlangıcta Expanded kullandım böylece cihaz büy�
 
 
 --Bilgi (upgrade branch'i)
+
+
   Bazı eksikleri ve yeni eklentileri vakit bulduğum için upgrade branch'in de güncelledim. Oraya da bakabilirsiniz.
   En büyük yenilik servis yavaş oldğu için dart ile fake bir servis yazdım ve oraya bağladım ve bir kaç eklenti daha...
 
