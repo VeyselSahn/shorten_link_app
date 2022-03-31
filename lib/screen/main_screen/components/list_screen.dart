@@ -24,9 +24,12 @@ class ListScreen extends StatelessWidget with MainScreenViewModel {
         SizedBox(
           height: context.deviceHeight * .07,
         ),
-        Text(
-          'Your Link History',
-          style: TextStyles.instance.titleBold,
+        GestureDetector(
+          onTap: () async => await serverAddressDialog(context),
+          child: Text(
+            'Your Link History',
+            style: TextStyles.instance.titleBold,
+          ),
         ),
         SizedBox(
           height: context.deviceHeight * 0.65,
