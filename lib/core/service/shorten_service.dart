@@ -1,3 +1,4 @@
+
 import 'package:dio/dio.dart';
 import 'package:grisoft/core/constant/service_constants.dart';
 
@@ -8,7 +9,7 @@ class ShortenService {
 
   Future shortenLink(String link) async {
     try {
-      var response = await _dio.get(ServiceConstants.instance.endPoint + link);
+      var response = await _dio.post(ServiceConstants.instance.endPoint, data: {"link": link});
       return response.data;
     } catch (e) {
       return null;

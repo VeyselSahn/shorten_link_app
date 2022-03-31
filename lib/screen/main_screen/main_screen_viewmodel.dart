@@ -22,7 +22,7 @@ abstract class MainScreenViewModel {
       linksProvider.changeIsWarn(false);
       var respose = await ShortenService().shortenLink(linksProvider.linkController.text);
       if (respose != null) {
-        var model = LinkItemModel.fromJson(respose['result'] ?? {});
+        var model = LinkItemModel.fromJson(respose ?? {});
         CacheService.instance.addLink(model);
         linksProvider.linkController.clear();
       } else {
