@@ -34,7 +34,11 @@ Responsive kısmı olarak Başlangıcta Expanded kullandım böylece cihaz büy�
 --Bilgi (upgrade branch'i)
 
 
-  Bazı eksikleri ve yeni eklentileri vakit bulduğum için upgrade branch'in de güncelledim. Oraya da bakabilirsiniz.
-  En büyük yenilik servis yavaş oldğu için dart ile fake bir servis yazdım ve oraya bağladım ve bir kaç eklenti daha...
+  Proje teslim tarihlerin de projemiz prod'a çıkmıştı ve  çok fazla zaman bulamamıştım.Şuan vakit bulunca bazı düzenlemeler yaptım
+  
+   1. Dart ile kendi kısaltma servisimi yazdım , yayınladım ve uygulamaya bağladım.(https://shorten-tr-bijetgd65q-uw.a.run.app) (upgrade readme'den okuyabilirsiniz)
+   2. View model ekledim , fonksiyonları oraya aldım.
+   3. size extension ekledim böylece her sayfada olan mediaquery satırı kalktı.
+   4. ve bir kaç tane daha küçük düzeltme.
 
 
