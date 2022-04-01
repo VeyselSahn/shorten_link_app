@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:grisoft/core/constant/colors.dart';
-import 'package:grisoft/core/init/extensions/device_size_extensions.dart';
 import 'package:grisoft/core/init/extensions/validation_extensions.dart';
 import 'package:grisoft/core/provider/links_provider.dart';
 import 'package:provider/provider.dart';
