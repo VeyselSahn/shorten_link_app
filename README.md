@@ -1,7 +1,7 @@
 #Grisoft Challenge
   
   Firstly ,I am still working for another company, so I didnt have so much time and I didnt complete code somewhere.
-  1. Valid Link , You have to login like 'flutter.com' 
+  1. Valid Link , You have to login like 'flutter.com' #Deadline dışında güncelledim
   2. I used provider , But i  used so little state management(for copying text and empty field).
   3. I didnt write test for whole apps (just for api).
   4. I have a windows computer so I couldnt test on ios.
