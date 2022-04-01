@@ -9,7 +9,6 @@ class ShortenService {
       var response = await _dio.post(ServiceConstants.instance.endPoint, data: {"link": link});
       return response.data;
     } catch (e) {
-      print(e.toString());
       return null;
     }
   }
