@@ -1,5 +1,6 @@
 extension Validation on String {
   bool get isValid {
-    return Uri.tryParse(this)?.hasAbsolutePath ?? false;
+    RegExp linkRuler = RegExp(r'(?:(?:https?|ftp):\/\/)?[\w/\-?=%.]+\.[\w/\-?=%.]+');
+    return linkRuler.hasMatch(this);
   }
 }
