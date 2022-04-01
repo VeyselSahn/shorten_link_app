@@ -1,32 +1,17 @@
-#Grisoft Challenge
-  
-  Firstly ,I am still working for another company, so I didnt have so much time and I didnt complete code somewhere.
-  1. Valid Link , You have to login like 'flutter.com' 
-  2. I used provider , But i  used so little state management(for copying text and empty field).
-  3. I didnt write test for whole apps (just for api).
-  4. I have a windows computer so I couldnt test on ios.
-
-As a techs
-  - for caching , used Hive
-  - network side , dio
-
-Shorten Api Service gave certificate error , when i used my phone internet.
-İf you will face the same problem , I can try to solve if you tell me
-
-Veysel Sahin
-
---Update
-
-
-Ne yaptığımı anlatmayı unuttum.
-
---Ui
-
-Tek bir sayfa yaptım ve bunu 3 ana widget'a böldüm çünkü sadece üst kısım değişecekti.
-
-
-Bir link girildiğin de eğer apiden başarılı response dönmüş ise Locale kaydettim(Hive).Üst kısım ValueListenable ile localde eğer bir data kayıtlı ise List halinde ki widget'a dönüşüyor.
-
-
-Responsive kısmı olarak Başlangıcta Expanded kullandım böylece cihaz büyüklüğü ne olursa olsun ona göre şekillenecek.İçerdeki widgetlar için MediaQuery kullandım.Zaman bulamadğım için ek bir sınıf tutmayı unutmuşum. Bütün sayfalarda (MediaQuery.of(context).size) gibi mantıksız bir satır var.
-
+#Dart web server hakkında 
+      
+    Şuan için bir veri tabanı bağlamadım. Bir listenin için de tutuyorum max 10 kısaltılmış link bulunabiliyor.
+    Domain'im çok kısa olmadığı için kısaltılmış linkler tersine normal linklerden daha uzun olabiliyor :).
+    
+ #Genel request'ler
+    
+    var mainUrl = 'https://shorten-tr-bijetgd65q-uw.a.run.app'; ('Servisin main url\'i');
+    her zaman açık olan link mainUrl +'/test';
+    bir kısaltılmış linki tarayıcı da arratığınızda bir html karşılıyor ve Open Link butonu ile adrese gidilebiliyor.
+    Tüm tutulan linkler mainUrl + '/getAll';
+    
+    yeni link eklemek için mainUrl + '/short'; POST  body {"link":"link.com"}
+    
+    apk'yı ve server'ın kodlarını for_test dosyasına ekledim, test edebilirsiniz. 
+    
+  #Herhangi bir sıkıntı çıkarsa issue açabilirseniz sevinirim.
