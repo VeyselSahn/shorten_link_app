@@ -52,7 +52,9 @@ class ListScreen extends StatelessWidget with MainScreenViewModel {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(model.originalLink ?? '', style: const TextStyle(color: Colors.black, fontSize: 15)),
+              Expanded(
+                  child: Text(model.originalLink ?? '',
+                      style: const TextStyle(color: Colors.black, fontSize: 15, overflow: TextOverflow.ellipsis))),
               GestureDetector(onTap: () async => deleteLink(model), child: SvgPicture.asset('del'.svgImageAsset))
             ],
           ),
