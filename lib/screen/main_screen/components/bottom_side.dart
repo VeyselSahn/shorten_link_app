@@ -1,30 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:grisoft/core/constant/texts.dart';
-import 'package:grisoft/core/init/extensions/validation_extensions.dart';
+import 'package:grisoft/core/init/extensions/device_size_extensions.dart';
 import 'package:grisoft/core/init/styles/text_styles.dart';
-import 'package:grisoft/core/model/link_item_model.dart';
 import 'package:grisoft/core/provider/links_provider.dart';
-import 'package:grisoft/core/service/cache_service.dart';
-import 'package:grisoft/core/service/shorten_service.dart';
-import 'package:grisoft/core/widgets/snackbar.dart';
+
+import 'package:grisoft/screen/main_screen/main_screen_viewmodel.dart';
 
 import '../../../core/constant/colors.dart';
 
-class BottomSide extends StatelessWidget {
+class BottomSide extends StatelessWidget with MainScreenViewModel {
   final LinksProvider linksProvider;
   const BottomSide({Key? key, required this.linksProvider}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    var size = MediaQuery.of(context).size;
-
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: size.width * .1),
+      padding: EdgeInsets.symmetric(horizontal: context.deviceWidth * .1),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           SizedBox(
-            height: size.height * .08,
+            height: context.customHeight,
             child: TextFormField(
               controller: linksProvider.linkController,
               textAlign: TextAlign.center,
@@ -45,27 +41,11 @@ class BottomSide extends StatelessWidget {
           ),
           GestureDetector(
             onTap: () async {
-              if (linksProvider.linkController.text.isEmpty) {
-                linksProvider.changeIsWarn(true);
-              } else if (!linksProvider.linkController.text.isValid) {
-                showSnacbar(context, Texts.instance.validLink);
-              } else {
-                buildShowDialog(context);
-                linksProvider.changeIsWarn(false);
-                var respose = await ShortenService().shortenLink(linksProvider.linkController.text);
-                if (respose != null) {
-                  var model = LinkItemModel.fromJson(respose['result'] ?? {});
-                  CacheService.instance.addLink(model);
-                  linksProvider.linkController.clear();
-                } else {
-                  showSnacbar(context, Texts.instance.wentWrong);
-                }
-                Navigator.pop(context);
-              }
+              await shorten(context);
             },
             child: Container(
-              width: size.width * 0.8,
-              height: size.height * .08,
+              width: context.customWidth,
+              height: context.customHeight,
               child: Center(
                   child: Text(
                 Texts.instance.shortenButton,
@@ -77,16 +57,5 @@ class BottomSide extends StatelessWidget {
         ],
       ),
     );
-  }
-
-  buildShowDialog(BuildContext context) {
-    return showDialog(
-        context: context,
-        barrierDismissible: false,
-        builder: (BuildContext context) {
-          return const Center(
-            child: CircularProgressIndicator(),
-          );
-        });
   }
 }

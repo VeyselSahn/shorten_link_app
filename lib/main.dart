@@ -19,6 +19,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
         create: (_) => LinksProvider(),
-        child: const MaterialApp(title: 'Material App', debugShowCheckedModeBanner: false, home: MainScreen()));
+        child: const MaterialApp(title: 'Shorten Link', debugShowCheckedModeBanner: false, home: MainScreen()));
   }
 }
